@@ -12,9 +12,12 @@
   },
   "dependencies": {
     "sass": "^1.75.0",
-    "vue": "^3.4.21"
+    "vue": "^3.4.21",
+    "vuetify": "^3.5.15"
   },
   "devDependencies": {
+    "@mdi/font": "^7.3.67",
+    "@mdi/js": "^7.3.67",
     "@rushstack/eslint-patch": "^1.8.0",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vue/eslint-config-prettier": "^9.0.0",

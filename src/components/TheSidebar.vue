@@ -6,115 +6,38 @@
       :title="item.title"
       :icon="item.icon"
       :children="item.children"
-      :active="index === selectedItemIndex"
-      @click="selectItem(index)"
+      :route="item.route"
+      :active="isActive(item.route)"
+      @select="selectItem(item, index)"
+      @changeRoute="changeRoute"
     />
   </aside>
 </template>
 
 <script setup>
-import { ref, provide } from 'vue'
-import {
-  mdiDomain,
-  mdiAccountMultipleOutline,
-  mdiCreditCardOutline,
-  mdiEmailMultipleOutline,
-  mdiFileDocumentOutline,
-  mdiCogOutline
-} from '@mdi/js'
+import { ref, computed } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import {sidebarItems} from '@/data/routes'
 import SidebarItem from '@/components/SidebarItem.vue'
 
-const selectedItemIndex = ref(0)
+const selectedItemIndex = ref(null)
 
-function selectItem(index) {
+function selectItem(item, index) {
   selectedItemIndex.value = index
+  changeRoute(item.route)
 }
 
-const sidebarItems = [
-  {
-    icon: mdiDomain,
-    title: 'Организации',
-    children: []
-  },
+const route = useRoute()
 
-  {
-    icon: mdiAccountMultipleOutline,
-    title: 'Персонал',
-    children: [
-      {
-        title: 'first',
-        route: '/first'
-      },
-      {
-        title: 'second',
-        route: '/second'
-      },
-      {
-        title: 'third',
-        route: '/third'
-      }
-    ]
-  },
-  {
-    icon: mdiCreditCardOutline,
-    title: 'Кредиты',
-    children: [
-      {
-        title: 'first',
-        route: '/first'
-      },
-      {
-        title: 'second',
-        route: '/second'
-      },
-      {
-        title: 'third',
-        route: '/third'
-      }
-    ]
-  },
-  {
-    icon: mdiEmailMultipleOutline,
-    title: 'Корреспонденция',
-    children: [
-      {
-        title: 'first',
-        route: '/first'
-      },
-      {
-        title: 'second',
-        route: '/second'
-      },
-      {
-        title: 'third',
-        route: '/third'
-      }
-    ]
-  },
-  {
-    icon: mdiFileDocumentOutline,
-    title: 'Цессия',
-    children: [
-      {
-        title: 'Аналитика',
-        route: '/analytics'
-      },
-      {
-        title: 'Договоры',
-        route: '/agreements'
-      },
-      {
-        title: 'Импорт',
-        route: '/import'
-      }
-    ]
-  },
-  {
-    icon: mdiCogOutline,
-    title: 'Настройки',
-    children: []
-  }
-]
+const isActive = (itemRoute) => {
+  return route.matched.some(item => item.path === `/${itemRoute}`)
+}
+
+const router = useRouter()
+function changeRoute(route) {
+  router.push({ path: `/${route}` })
+}
+
 </script>
 
 <style lang="scss" scoped>

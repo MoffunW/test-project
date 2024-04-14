@@ -1,6 +1,7 @@
 <script setup>
 import TheHeader from '@/components/TheHeader.vue'
 import TheSidebar from '@/components/TheSidebar.vue'
+import { RouterView } from 'vue-router'
 import TheMain from '@/components/TheMain.vue'
 </script>
 
@@ -10,7 +11,7 @@ import TheMain from '@/components/TheMain.vue'
 
     <div class="wrapper">
       <TheSidebar />
-      <TheMain />
+      <RouterView />
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar-item">
-    <div class="sidebar-item__header" :class="{ active: active }">
+    <div @click="$emit('select')" class="sidebar-item__header" :class="{ active: active }">
       <v-icon class="sidebar-item__icon">{{ icon }}</v-icon>
       <div class="sidebar-item__title">{{ title }}</div>
       <div v-if="expandable" class="sidebar-item__arrow" :class="{ rotated: active }">
@@ -9,13 +9,13 @@
     </div>
     <!-- TODO: collapsing sibling above causing laggy motion-->
     <transition name="smooth">
-      <div class="sidebar-item__content" v-show="expandable && active">
+      <div class="sidebar-item__content" v-if="expandable && active">
         <p
           v-for="(item, index) in children"
           :key="index"
-          @click="selectLink(index)"
+          @click="selectLink(item.route)"
           class="sidebar-item__link"
-          :class="{ active: activeLinkIndex === index }"
+          :class="{ active: isActiveLink(item.name) }"
         >
           {{ item.title }}
         </p>
@@ -25,19 +25,28 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 import { mdiChevronDown } from '@mdi/js'
+import {useRoute} from 'vue-router'
 
 const props = defineProps({
   icon: String,
   title: String,
+  route: String,
   children: Array,
   active: Boolean
 })
+const route = useRoute()
+  
+const isActiveLink = (routeName) => {
+  return route.name === routeName
+};
 
-const activeLinkIndex = ref(0)
-function selectLink(index) {
-  activeLinkIndex.value = index
+const emit = defineEmits(['changeRoute', 'select'])
+
+// TODO: not all links setting correctly
+function selectLink(itemRoute) {
+  emit('changeRoute', `${props.route}/${itemRoute}`)
 }
 
 const expandable = computed(() => props.children.length > 0)

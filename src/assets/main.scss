@@ -1,5 +1,14 @@
 @import './base.scss';
+@import './overrides/vuetify.scss';
 
 :root {
+  --color-green: #42b277;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray: #a6aba9;
+  --c-sidebar-icon: var(--color-gray);
+  --c-text: var(--color-black);
+  --c-text-inversed: var(--color-white);
+  --c-primary: var(--color-green);
   --header-height: 67px;
 }

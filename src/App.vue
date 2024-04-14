@@ -5,14 +5,14 @@ import TheMain from '@/components/TheMain.vue'
 </script>
 
 <template>
-  <v-app class="app">
+  <div class="app">
     <TheHeader />
 
     <div class="wrapper">
       <TheSidebar />
       <TheMain />
     </div>
-  </v-app>
+  </div>
 </template>
 
 <style scoped>
@@ -22,5 +22,6 @@ import TheMain from '@/components/TheMain.vue'
 
 .wrapper {
   display: flex;
+  height: calc(100vh - var(--header-height));
 }
 </style>

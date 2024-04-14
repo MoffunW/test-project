@@ -18,7 +18,6 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  height: calc(100vh - var(--header-height));
   overflow-y: auto;
   background: #f5f5f5;
 }

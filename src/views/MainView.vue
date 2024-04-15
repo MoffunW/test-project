@@ -1,10 +1,12 @@
 <template>
-  <main class='main'>
+  <main class="main">
     <RouterView>
       <template v-slot="{ Component }">
-         <component :is="Component" :title='currentRouteName'>
-              
-          </component> 
+        <component :is="Component" :title="currentRouteName">
+          <template v-slot:title>
+            <div class="title">{{ currentRouteName }}</div>
+          </template>
+        </component>
       </template>
     </RouterView>
   </main>
@@ -15,7 +17,10 @@ import { computed, watch } from 'vue'
 import { useRoute, RouterView } from 'vue-router'
 
 const route = useRoute()
-watch(() => route.path, () => console.log(route, 'route'))
+watch(
+  () => route.path,
+  () => console.log(route, 'route')
+)
 
 const currentRouteName = computed(() => route.meta.title)
 </script>
@@ -27,6 +32,7 @@ const currentRouteName = computed(() => route.meta.title)
   padding: 24px;
   padding-right: 32px;
   width: 100%;
+  background: var(--c-background);
   &__title {
     font-size: 24px;
     line-height: 29px;
@@ -35,5 +41,9 @@ const currentRouteName = computed(() => route.meta.title)
   &__actions {
     display: flex;
   }
+}
+.title {
+  font-size: 24px;
+  font-weight: 700;
 }
 </style>

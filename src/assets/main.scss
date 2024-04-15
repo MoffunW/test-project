@@ -7,10 +7,17 @@
   --color-black: #000;
   --color-gray: #a6aba9;
   --color-gray-lighter: #f5f5f5;
+  --color-gray-lighter-1: #f5f5f5;
+  --color-red: #fd6666;
   --c-sidebar-icon: var(--color-gray);
   --c-text: var(--color-black);
   --c-text-inversed: var(--color-white);
   --c-primary: var(--color-green);
+  --c-dim: var(--color-gray);
   --c-background: var(--color-gray-lighter);
+  --c-background-contrast: var(--color-white);
   --header-height: 67px;
+  --z-table-header: 2;
+  --z-overlay: 4;
+  --z-modal: 5;
 }

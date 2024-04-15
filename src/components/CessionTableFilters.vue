@@ -1,6 +1,7 @@
 <template>
   <div class="actions">
     <v-text-field
+      v-model="searchString"
       :prepend-inner-icon="mdiMagnify"
       class="actions__search"
       variant="outlined"
@@ -8,13 +9,32 @@
       density="comfortable"
       :menuIcon="mdiMagnify"
     />
-    <v-select class="actions__status" variant="outlined" hide-details density="comfortable" />
+    <v-select
+      v-model="status"
+      :items="statuses"
+      item-title="name"
+      item-value="value"
+      class="actions__status"
+      variant="outlined"
+      hide-details
+      density="comfortable"
+      label="Статус"
+    />
+    <!--Didn't get purpose of this checkbox-->
     <v-checkbox class="actions__done" label="Обработан" hide-details density="comfortable" />
   </div>
 </template>
 
 <script setup>
+import { defineModel } from 'vue'
 import { mdiMagnify } from '@mdi/js'
+
+const status = defineModel('status')
+const searchString = defineModel('searchString')
+console.log(status, 'model')
+const props = defineProps({
+  statuses: Array
+})
 </script>
 
 <style lang="scss" scoped>

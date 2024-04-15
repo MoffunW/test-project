@@ -2,7 +2,7 @@
   <main class="main">
     <RouterView>
       <template v-slot="{ Component }">
-        <component :is="Component" :title="currentRouteName">
+        <component :is="Component">
           <template v-slot:title>
             <div class="title">{{ currentRouteName }}</div>
           </template>

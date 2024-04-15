@@ -1,8 +1,10 @@
 <script setup>
 import TheHeader from '@/components/TheHeader.vue'
 import TheSidebar from '@/components/TheSidebar.vue'
-import { RouterView } from 'vue-router'
-import TheMain from '@/components/TheMain.vue'
+import { RouterView, useRouter } from 'vue-router'
+
+const router = useRouter()
+router.push('/cession/import')
 </script>
 
 <template>
@@ -10,6 +12,7 @@ import TheMain from '@/components/TheMain.vue'
     <TheHeader />
 
     <div class="wrapper">
+      <div id="modalContainer"></div>
       <TheSidebar />
       <RouterView />
     </div>

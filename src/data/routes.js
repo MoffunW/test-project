@@ -20,17 +20,16 @@ export const sidebarItems = [
     title: 'Персонал',
     route: 'staff',
     children: [
-      
       {
         title: 'Аналитика',
         route: 'analytics',
-        name: 'analytics',
+        name: 'analytics'
       },
       {
         title: 'Договоры',
         meta: 'Список договоров',
         route: 'agreements',
-        name: 'agreements',
+        name: 'agreements'
       },
       {
         title: 'Импорт',
@@ -38,7 +37,6 @@ export const sidebarItems = [
         name: 'import',
         route: 'import'
       }
-
     ]
   },
   {
@@ -49,13 +47,13 @@ export const sidebarItems = [
       {
         title: 'Аналитика',
         route: 'analytics',
-        name: 'analytics',
+        name: 'analytics'
       },
       {
         title: 'Договоры',
         meta: 'Список договоров',
         route: 'agreements',
-        name: 'agreements',
+        name: 'agreements'
       },
       {
         title: 'Импорт',
@@ -73,13 +71,13 @@ export const sidebarItems = [
       {
         title: 'Аналитика',
         route: 'analytics',
-        name: 'analytics',
+        name: 'analytics'
       },
       {
         title: 'Договоры',
         meta: 'Список договоров',
         route: 'agreements',
-        name: 'agreements',
+        name: 'agreements'
       },
       {
         title: 'Импорт',
@@ -96,14 +94,15 @@ export const sidebarItems = [
     children: [
       {
         title: 'Аналитика',
+        meta: 'Аналитика',
         route: 'analytics',
-        name: 'analytics',
+        name: 'analytics'
       },
       {
         title: 'Договоры',
         meta: 'Список договоров',
         route: 'agreements',
-        name: 'agreements',
+        name: 'agreements'
       },
       {
         title: 'Импорт',
@@ -115,9 +114,9 @@ export const sidebarItems = [
   },
   {
     icon: mdiCogOutline,
+    meta: 'Настройки',
     title: 'Настройки',
     route: 'settings',
     children: []
   }
 ]
-

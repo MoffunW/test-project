@@ -1,5 +1,7 @@
 # test-project
 
+## [demo on firebase](https://test-project-mkc.web.app/#/).
+
 ## Установка пакетов
 
 ```sh
@@ -14,9 +16,10 @@ npm install
 npm run dev:mock
 ```
 
-### С apiURL
-Внутри `.env.development` в переменную `VITE_API_URL` подставить адрес
-Затем
+### С apiUrl
+внутри `.env.development` в переменную `VITE_API_URL` подставить адрес
+
+затем
 
 ```sh
 npm run dev

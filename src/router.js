@@ -8,14 +8,14 @@ const ImportPage = () => import('@/pages/ImportPage.vue')
 
 const routes = sidebarItems.map((item) => ({
   path: item.route,
-  component: item.route === 'cession' ? CessionView : NotFoundView, // HARDCODE for interview project
+  component: item.route === 'cession' ? CessionView : MainView, // HARDCODE for interview project
   meta: { title: item.title },
 
   children: item.children.map((child) => {
     return {
       path: child.route,
       name: child.name,
-      component: child.route === '/import' ? ImportPage : NotFoundView, // HARDCODE for interview project
+      component: child.route === 'import' ? ImportPage : NotFoundView, // HARDCODE for interview project
       meta: { title: child.meta }
     }
   })

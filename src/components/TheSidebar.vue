@@ -15,22 +15,13 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
-import {sidebarItems} from '@/data/routes'
+import { sidebarItems } from '@/data/routes'
 import SidebarItem from '@/components/SidebarItem.vue'
 
-const selectedItemIndex = ref(null)
-
-function selectItem(item, index) {
-  selectedItemIndex.value = index
-  changeRoute(item.route)
-}
-
-const route = useRoute()
-
-const isActive = (itemRoute) => {
-  return route.matched.some(item => item.path === `/${itemRoute}`)
+function selectItem(item) {
+  if (isActive(item.route)) changeRoute('')
+  else changeRoute(item.route)
 }
 
 const router = useRouter()
@@ -38,6 +29,10 @@ function changeRoute(route) {
   router.push({ path: `/${route}` })
 }
 
+const route = useRoute()
+const isActive = (itemRoute) => {
+  return route.matched.some((item) => item.path === `/${itemRoute}`)
+}
 </script>
 
 <style lang="scss" scoped>

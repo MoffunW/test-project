@@ -44,8 +44,8 @@ const fileName = ref('')
 const isFileDrag = ref(false)
 
 function handleFileInput(event) {
-  console.log(event, 'event')
   isFileDrag.value = false
+
   let file
   if (event.type === 'drop') file = event.dataTransfer.files[0]
   else file = event.target.files[0]

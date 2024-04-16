@@ -13,14 +13,10 @@
 </template>
 
 <script setup>
-import { computed, watch } from 'vue'
+import { computed } from 'vue'
 import { useRoute, RouterView } from 'vue-router'
 
 const route = useRoute()
-watch(
-  () => route.path,
-  () => console.log(route, 'route')
-)
 
 const currentRouteName = computed(() => route.meta.title)
 </script>
@@ -34,17 +30,8 @@ const currentRouteName = computed(() => route.meta.title)
   width: 100%;
   background: var(--c-background);
   overflow-x: auto;
-  &__title {
-    font-size: 24px;
-    line-height: 29px;
-    font-weight: 700;
-  }
   &__actions {
     display: flex;
   }
-}
-.title {
-  font-size: 24px;
-  font-weight: 700;
 }
 </style>

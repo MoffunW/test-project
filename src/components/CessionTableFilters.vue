@@ -31,7 +31,7 @@ import { mdiMagnify } from '@mdi/js'
 
 const status = defineModel('status')
 const searchString = defineModel('searchString')
-console.log(status, 'model')
+
 const props = defineProps({
   statuses: Array
 })

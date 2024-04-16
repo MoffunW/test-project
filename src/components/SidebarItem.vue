@@ -27,7 +27,7 @@
 <script setup>
 import { computed } from 'vue'
 import { mdiChevronDown } from '@mdi/js'
-import {useRoute} from 'vue-router'
+import { useRoute } from 'vue-router'
 
 const props = defineProps({
   icon: String,
@@ -37,14 +37,13 @@ const props = defineProps({
   active: Boolean
 })
 const route = useRoute()
-  
+
 const isActiveLink = (routeName) => {
   return route.name === routeName
-};
+}
 
 const emit = defineEmits(['changeRoute', 'select'])
 
-// TODO: not all links setting correctly
 function selectLink(itemRoute) {
   emit('changeRoute', `${props.route}/${itemRoute}`)
 }

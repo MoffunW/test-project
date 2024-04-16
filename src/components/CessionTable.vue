@@ -27,7 +27,7 @@
 </template>
 
 <script setup>
-import { watch, ref } from 'vue'
+import { ref } from 'vue'
 import { $t } from '@/utils/language'
 import { formatDate } from '@/utils/dates'
 import { mdiDownload, mdiTrashCanOutline } from '@mdi/js'
@@ -42,7 +42,6 @@ const emit = defineEmits(['deleteItem', 'downloadItem'])
 const COLUMN_ORDER = ['id', 'file', 'status', 'created_at', 'credits_count', 'created_by']
 
 const headers = ref([])
-
 function getHeaders() {
   return COLUMN_ORDER.map((key) => $t(key))
 }
@@ -72,6 +71,7 @@ headers.value = getHeaders()
   margin-top: 20px;
   &::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
   }
   &::-webkit-scrollbar-track {
     background: #eaeaea;
@@ -108,14 +108,13 @@ table {
     position: relative;
     background: #fff;
     height: 40px;
-    //z-index: var(--z-table-header);
   }
   tbody {
     margin-top: 10px;
     &::before {
       line-height: 5px;
       content: '.';
-      color: white; /* bacground color */
+      color: #fff;
       display: block;
     }
 

@@ -33,6 +33,7 @@ const currentRouteName = computed(() => route.meta.title)
   padding-right: 32px;
   width: 100%;
   background: var(--c-background);
+  overflow-x: auto;
   &__title {
     font-size: 24px;
     line-height: 29px;

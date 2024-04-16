@@ -27,6 +27,7 @@
 import { ref, computed } from 'vue'
 
 import axios from 'axios'
+import { useModal } from '@/composables/modal'
 import { mdiPlus } from '@mdi/js'
 import { $t } from '@/utils/language'
 import CessionTable from '@/components/CessionTable.vue'
@@ -38,10 +39,7 @@ const STATUSES = [
   { name: $t('error'), value: 'error' }
 ]
 
-const isModal = ref(false)
-const closeModal = () => {
-  isModal.value = false
-}
+const { isModal, closeModal } = useModal()
 
 const items = ref([])
 const status = ref(null)

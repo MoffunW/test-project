@@ -34,31 +34,19 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useFiles } from '@/composables/file'
 import TheModal from '@/components/TheModal.vue'
 import UICheckbox from '@/components/UICheckbox.vue'
 
-const checkAddress = ref(false)
-const checkINN = ref(false)
-const fileName = ref('')
-
-const isFileDrag = ref(false)
-
-function handleFileInput(event) {
-  isFileDrag.value = false
-
-  let file
-  if (event.type === 'drop') file = event.dataTransfer.files[0]
-  else file = event.target.files[0]
-
-  if (!file) return
-
-  fileName.value = file.name
-}
+const { handleFileInput, isFileDrag, fileName, fileValue } = useFiles()
 
 const emits = defineEmits(['closeModal'])
 
+const checkAddress = ref(false)
+const checkINN = ref(false)
 async function importFile() {
   try {
+    // ...
     emits('closeModal')
   } catch (error) {
     console.error(error)

@@ -27,7 +27,7 @@ $size: 40px;
     height: $size;
     width: $size;
     border-radius: 100%;
-    background: red;
+    background: gray;
     overflow: hidden;
     img {
       max-height: 100%;
